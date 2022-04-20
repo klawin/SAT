@@ -62,7 +62,6 @@
     <Compile Include="AspNetUserLogin.cs">
       <DependentUpon>SAT.tt</DependentUpon>
     </Compile>
-    <Compile Include="Class1.cs" />
     <Compile Include="Courses.cs">
       <DependentUpon>SAT.tt</DependentUpon>
     </Compile>
@@ -88,6 +87,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SAT.edmx</DependentUpon>
     </Compile>
+    <Compile Include="SATMetadata\SATMetadata.cs" />
     <Compile Include="ScheduledClasses.cs">
       <DependentUpon>SAT.tt</DependentUpon>
     </Compile>

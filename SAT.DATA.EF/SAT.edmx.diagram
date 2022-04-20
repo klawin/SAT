@@ -5,17 +5,17 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="6eb790d40c6b49239a26ade0fffb7d10" Name="Diagram1">
-        <EntityTypeShape EntityType="SATModel.C__MigrationHistory" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SATModel.AspNetRole" Width="1.5" PointX="5.75" PointY="6.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="SATModel.AspNetUserClaim" Width="1.5" PointX="10.25" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="SATModel.AspNetUserLogin" Width="1.5" PointX="10.25" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SATModel.AspNetUser" Width="1.5" PointX="8" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SATModel.C__MigrationHistory" Width="1.5" PointX="7.75" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SATModel.AspNetRole" Width="1.5" PointX="12.5" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SATModel.AspNetUserClaim" Width="1.5" PointX="16.125" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SATModel.AspNetUserLogin" Width="1.5" PointX="12.5" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SATModel.AspNetUser" Width="1.5" PointX="14.25" PointY="6.875" IsExpanded="true" />
         <EntityTypeShape EntityType="SATModel.Courses" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
         <EntityTypeShape EntityType="SATModel.Enrollments" Width="1.5" PointX="5.25" PointY="1.375" IsExpanded="true" />
         <EntityTypeShape EntityType="SATModel.ScheduledClasses" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="SATModel.ScheduledClassStatuses" Width="1.5" PointX="0.75" PointY="5.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="SATModel.Students" Width="1.5" PointX="3" PointY="8.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="SATModel.StudentStatuses" Width="1.5" PointX="0.75" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SATModel.ScheduledClassStatuses" Width="1.5" PointX="1.875" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SATModel.Students" Width="1.5" PointX="7.875" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SATModel.StudentStatuses" Width="1.5" PointX="5.125" PointY="4.25" IsExpanded="true" />
         <AssociationConnector Association="SATModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
         <AssociationConnector Association="SATModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
         <AssociationConnector Association="SATModel.FK_ScheduledClasses_Courses" ManuallyRouted="false" />
