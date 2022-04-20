@@ -95,4 +95,25 @@ namespace SAT.DATA.EF//.SATMetadata
         public string SCSName { get; set; }
     }
     #endregion
+
+    #region StudentMetadata
+
+    //public int StudentId { get; set; }
+    public class Student
+    {
+        [Required(ErrorMessage = "*")]
+        [StringLength(50, ErrorMessage = "*Must be 50 characters or less.")]
+        [Display(Name = "First Name")]
+        public string FirstName { get; set; }
+        [Required(ErrorMessage = "*")]
+        [StringLength(50, ErrorMessage = "*Must be 50 characters or less.")]
+        [Display(Name = "Last Name")]
+        public string LastName { get; set; }
+        [StringLength(50, ErrorMessage = "*Must be 50 characters or less.")]
+        [Display(Name = "Email Address")]
+        public string EmailAddress { get; set; }
+        [Required(ErrorMessage = "*")]
+        public int SSID { get; set; }
+    }
+    #endregion
 }
