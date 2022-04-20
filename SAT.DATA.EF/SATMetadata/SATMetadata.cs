@@ -9,7 +9,7 @@ namespace SAT.DATA.EF//.SATMetadata
 {
     #region CoursesMetadata
 
-    public class CoursesMetadata
+    public class CourseMetadata
     {
         //public int CourseId { get; set; }
 
@@ -35,10 +35,15 @@ namespace SAT.DATA.EF//.SATMetadata
         [Display(Name = "Active?")]
         public bool IsActive { get; set; }
     }
+    [MetadataType(typeof(CourseMetadata))]
+    public partial class Course
+    {
+
+    }
     #endregion
 
     #region EnrollmentsMetadata
-    public class EnrollmentsMetadata
+    public class EnrollmentMetadata
     {
         [Required(ErrorMessage = "*")]
         public int EnrollmentId { get; set; }
@@ -52,10 +57,15 @@ namespace SAT.DATA.EF//.SATMetadata
         [DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true, NullDisplayText = "[-N/A-}")]
         public DateTime EnrollmentDate { get; set; }
     }
+    [MetadataType(typeof(EnrollmentMetadata))]
+    public partial class Enrollment
+    {
+
+    }
     #endregion
 
     #region ScheduledClassesMetadata
-    public class ScheduledClassesMetadata
+    public class ScheduledClassMetadata
     {
 
         //public int ScheduledClassId { get; set; }
@@ -84,23 +94,32 @@ namespace SAT.DATA.EF//.SATMetadata
         [Required(ErrorMessage = "*")]
         public int SCSID { get; set; }
     }
+    [MetadataType(typeof(ScheduledClassMetadata))]
+    public partial class ScheduledClass
+    {
 
+    }
     #endregion
 
     #region ScheduledClassStatusses
-    public class ScheduledClassStatusses
+    public class ScheduledClassStatusMetadata
     {
         //public int SCSID { get; set; }
         [Required(ErrorMessage = "*")]
         [StringLength(50, ErrorMessage = "*Must be 50 characters or less.")]
         public string SCSName { get; set; }
     }
+    [MetadataType(typeof(ScheduledClassStatusMetadata))]
+    public partial class ScheduledClassStatus
+    {
+
+    }
     #endregion
 
     #region StudentMetadata
 
     //public int StudentId { get; set; }
-    public class StudentsMetadata
+    public class StudentMetadata
     {
         [Required(ErrorMessage = "*")]
         [StringLength(50, ErrorMessage = "*Must be 50 characters or less.")]
@@ -116,10 +135,19 @@ namespace SAT.DATA.EF//.SATMetadata
         [Required(ErrorMessage = "*")]
         public int SSID { get; set; }
     }
+    [MetadataType(typeof(StudentMetadata))]
+    public partial class Student
+    {
+        [Display(Name = "Full Name")]
+        public string FullName
+        {
+            get { return FirstName + " " + LastName; }
+        }
+    }
     #endregion
 
     #region StudentStatusesMetadata
-    public class StudentStatusesMetadata
+    public class StudentStatusMetadata
     {
         //public int SSID { get; set; }
         [Required(ErrorMessage = "*")]
@@ -130,6 +158,10 @@ namespace SAT.DATA.EF//.SATMetadata
         [Required(ErrorMessage = "*")]
         [Display(Name = "Student Status Description")]
         public string SSDescription { get; set; }
+    }
+    [MetadataType(typeof(StudentStatusMetadata))]
+    public partial class StudentStatus
+    {
     }
     #endregion
 }
