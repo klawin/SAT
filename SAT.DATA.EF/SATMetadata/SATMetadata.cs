@@ -116,4 +116,19 @@ namespace SAT.DATA.EF//.SATMetadata
         public int SSID { get; set; }
     }
     #endregion
+
+    #region StudentStatusesMetadata
+    public class StudentStatusesMetadata
+    {
+        //public int SSID { get; set; }
+        [Required(ErrorMessage = "*")]
+        [StringLength(50, ErrorMessage = "*Must be 50 characters or less.")]
+        [Display(Name = "Student Status")]
+        public string SSName { get; set; }
+
+        [Required(ErrorMessage = "*")]
+        [Display(Name = "Student Status Description")]
+        public string SSDescription { get; set; }
+    }
+    #endregion
 }
