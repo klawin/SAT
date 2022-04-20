@@ -85,4 +85,14 @@ namespace SAT.DATA.EF//.SATMetadata
     }
 
     #endregion
+
+    #region ScheduledClassStatusses
+    public class ScheduledClassStatusses
+    {
+        //public int SCSID { get; set; }
+        [Required(ErrorMessage = "*")]
+        [StringLength(50, ErrorMessage = "*Must be 50 characters or less.")]
+        public string SCSName { get; set; }
+    }
+    #endregion
 }
