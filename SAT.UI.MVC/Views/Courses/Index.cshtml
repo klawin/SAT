@@ -9,49 +9,63 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.CourseName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CourseDescription)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CreditHours)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Curriculum)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IsActive)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.CourseName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CourseDescription)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CreditHours)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Curriculum)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsActive)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.CourseId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.CourseId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.CourseId })
-        </td>
-    </tr>
-}
-
-</table>
+<div class="col-lg-12">
+    <div class="card mb-0">
+        <div class="card-header">
+            <h3 class="h4 mb-0">@ViewBag.Title</h3>
+        </div>
+        <div class="card-body pt-0">
+            <div class="table-responsive">
+                <table class="table table-striped mb-0">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CourseName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CourseDescription)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CreditHours)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Curriculum)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.IsActive)
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td class="border-bottom-0">
+                                    @Html.DisplayFor(modelItem => item.CourseName)
+                                </td>
+                                <td class="border-bottom-0">
+                                    @Html.DisplayFor(modelItem => item.CourseDescription)
+                                </td>
+                                <td class="border-bottom-0">
+                                    @Html.DisplayFor(modelItem => item.CreditHours)
+                                </td>
+                                <td class="border-bottom-0">
+                                    @Html.DisplayFor(modelItem => item.Curriculum)
+                                </td>
+                                <td class="border-bottom-0">
+                                    @Html.DisplayFor(modelItem => item.IsActive)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Edit", "Edit", new { id = item.CourseId }) |
+                                    @Html.ActionLink("Details", "Details", new { id = item.CourseId }) |
+                                    @Html.ActionLink("Delete", "Delete", new { id = item.CourseId })
+                                </td>
+                            </tr>
+                        }
+                        </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

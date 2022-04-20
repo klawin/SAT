@@ -9,37 +9,49 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.EnrollmentDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ScheduledClass.InstructorName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Student.FirstName)
-        </th>
-        <th></th>
-    </tr>
+<div class="col-lg-12">
+    <div class="card mb-0">
+        <div class="card-header">
+            <h3 class="h4 mb-0">@ViewBag.Title</h3>
+        </div>
+        <div class="card-body pt-0">
+            <div class="table-responsive">
+                <table class="table">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.EnrollmentDate)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ScheduledClass.InstructorName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Student.FirstName)
+                        </th>
+                        <th></th>
+                    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.EnrollmentDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ScheduledClass.InstructorName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Student.FirstName)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.EnrollmentId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.EnrollmentId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.EnrollmentId })
-        </td>
-    </tr>
-}
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.EnrollmentDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ScheduledClass.InstructorName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Student.FirstName)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { id = item.EnrollmentId }) |
+                                @Html.ActionLink("Details", "Details", new { id = item.EnrollmentId }) |
+                                @Html.ActionLink("Delete", "Delete", new { id = item.EnrollmentId })
+                            </td>
+                        </tr>
+                    }
 
-</table>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
