@@ -12,18 +12,18 @@ namespace SAT.DATA.EF
     using System;
     using System.Collections.Generic;
     
-    public partial class ScheduledClassStatuses
+    public partial class ScheduledClassStatus
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public ScheduledClassStatuses()
+        public ScheduledClassStatus()
         {
-            this.ScheduledClasses = new HashSet<ScheduledClasses>();
+            this.ScheduledClasses = new HashSet<ScheduledClass>();
         }
     
         public int SCSID { get; set; }
         public string SCSName { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ScheduledClasses> ScheduledClasses { get; set; }
+        public virtual ICollection<ScheduledClass> ScheduledClasses { get; set; }
     }
 }

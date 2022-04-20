@@ -50,25 +50,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AspNetRole.cs">
+    <Compile Include="Course.cs">
       <DependentUpon>SAT.tt</DependentUpon>
     </Compile>
-    <Compile Include="AspNetUser.cs">
-      <DependentUpon>SAT.tt</DependentUpon>
-    </Compile>
-    <Compile Include="AspNetUserClaim.cs">
-      <DependentUpon>SAT.tt</DependentUpon>
-    </Compile>
-    <Compile Include="AspNetUserLogin.cs">
-      <DependentUpon>SAT.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Courses.cs">
-      <DependentUpon>SAT.tt</DependentUpon>
-    </Compile>
-    <Compile Include="C__MigrationHistory.cs">
-      <DependentUpon>SAT.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Enrollments.cs">
+    <Compile Include="Enrollment.cs">
       <DependentUpon>SAT.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -88,46 +73,44 @@
       <DependentUpon>SAT.edmx</DependentUpon>
     </Compile>
     <Compile Include="SATMetadata\SATMetadata.cs" />
-    <Compile Include="ScheduledClasses.cs">
+    <Compile Include="ScheduledClass.cs">
       <DependentUpon>SAT.tt</DependentUpon>
     </Compile>
-    <Compile Include="ScheduledClassStatuses.cs">
+    <Compile Include="ScheduledClassStatus.cs">
       <DependentUpon>SAT.tt</DependentUpon>
     </Compile>
-    <Compile Include="Students.cs">
+    <Compile Include="Student.cs">
       <DependentUpon>SAT.tt</DependentUpon>
     </Compile>
-    <Compile Include="StudentStatuses.cs">
+    <Compile Include="StudentStatus.cs">
       <DependentUpon>SAT.tt</DependentUpon>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <EntityDeploy Include="SAT.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>SAT.Designer.cs</LastGenOutput>
-    </EntityDeploy>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
     <None Include="packages.config" />
+    <EntityDeploy Include="SAT.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SAT.Designer.cs</LastGenOutput>
+    </EntityDeploy>
     <None Include="SAT.edmx.diagram">
       <DependentUpon>SAT.edmx</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="SAT.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>SAT.Context.cs</LastGenOutput>
       <DependentUpon>SAT.edmx</DependentUpon>
+      <LastGenOutput>SAT.Context.cs</LastGenOutput>
     </Content>
     <Content Include="SAT.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>SAT.edmx</DependentUpon>
       <LastGenOutput>SAT.cs</LastGenOutput>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -12,18 +12,25 @@ namespace SAT.DATA.EF
     using System;
     using System.Collections.Generic;
     
-    public partial class AspNetRole
+    public partial class ScheduledClass
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public AspNetRole()
+        public ScheduledClass()
         {
-            this.AspNetUsers = new HashSet<AspNetUser>();
+            this.Enrollments = new HashSet<Enrollment>();
         }
     
-        public string Id { get; set; }
-        public string Name { get; set; }
+        public int ScheduledClassId { get; set; }
+        public int CourseId { get; set; }
+        public System.DateTime StartDate { get; set; }
+        public System.DateTime EndDate { get; set; }
+        public string InstructorName { get; set; }
+        public string Location { get; set; }
+        public int SCSID { get; set; }
     
+        public virtual Course Course { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<AspNetUser> AspNetUsers { get; set; }
+        public virtual ICollection<Enrollment> Enrollments { get; set; }
+        public virtual ScheduledClassStatus ScheduledClassStatus { get; set; }
     }
 }

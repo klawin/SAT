@@ -12,12 +12,12 @@ namespace SAT.DATA.EF
     using System;
     using System.Collections.Generic;
     
-    public partial class StudentStatuses
+    public partial class StudentStatus
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public StudentStatuses()
+        public StudentStatus()
         {
-            this.Students = new HashSet<Students>();
+            this.Students = new HashSet<Student>();
         }
     
         public int SSID { get; set; }
@@ -25,6 +25,6 @@ namespace SAT.DATA.EF
         public string SSDescription { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Students> Students { get; set; }
+        public virtual ICollection<Student> Students { get; set; }
     }
 }

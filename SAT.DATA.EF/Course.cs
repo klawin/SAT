@@ -12,22 +12,22 @@ namespace SAT.DATA.EF
     using System;
     using System.Collections.Generic;
     
-    public partial class Students
+    public partial class Course
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Students()
+        public Course()
         {
-            this.Enrollments = new HashSet<Enrollments>();
+            this.ScheduledClasses = new HashSet<ScheduledClass>();
         }
     
-        public int StudentId { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string EmailAddress { get; set; }
-        public int SSID { get; set; }
+        public int CourseId { get; set; }
+        public string CourseName { get; set; }
+        public string CourseDescription { get; set; }
+        public byte CreditHours { get; set; }
+        public string Curriculum { get; set; }
+        public bool IsActive { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Enrollments> Enrollments { get; set; }
-        public virtual StudentStatuses StudentStatuses { get; set; }
+        public virtual ICollection<ScheduledClass> ScheduledClasses { get; set; }
     }
 }

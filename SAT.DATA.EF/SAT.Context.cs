@@ -25,16 +25,11 @@ namespace SAT.DATA.EF
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<C__MigrationHistory> C__MigrationHistory { get; set; }
-        public virtual DbSet<AspNetRole> AspNetRoles { get; set; }
-        public virtual DbSet<AspNetUserClaim> AspNetUserClaims { get; set; }
-        public virtual DbSet<AspNetUserLogin> AspNetUserLogins { get; set; }
-        public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
-        public virtual DbSet<Courses> Courses1 { get; set; }
-        public virtual DbSet<Enrollments> Enrollments1 { get; set; }
-        public virtual DbSet<ScheduledClasses> ScheduledClasses1 { get; set; }
-        public virtual DbSet<ScheduledClassStatuses> ScheduledClassStatuses { get; set; }
-        public virtual DbSet<Students> Students1 { get; set; }
-        public virtual DbSet<StudentStatuses> StudentStatuses { get; set; }
+        public virtual DbSet<Course> Courses { get; set; }
+        public virtual DbSet<Enrollment> Enrollments { get; set; }
+        public virtual DbSet<ScheduledClass> ScheduledClasses { get; set; }
+        public virtual DbSet<ScheduledClassStatus> ScheduledClassStatuses { get; set; }
+        public virtual DbSet<Student> Students { get; set; }
+        public virtual DbSet<StudentStatus> StudentStatuses { get; set; }
     }
 }

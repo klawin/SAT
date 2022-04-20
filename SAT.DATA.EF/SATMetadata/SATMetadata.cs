@@ -42,7 +42,8 @@ namespace SAT.DATA.EF//.SATMetadata
     {
         [Required(ErrorMessage = "*")]
         public int EnrollmentId { get; set; }
-        //public int StudentId { get; set; }
+        [Required(ErrorMessage = "*")]
+        public int StudentId { get; set; }
         //public int ScheduledClassId { get; set; }
 
         [Required(ErrorMessage = "*")]
@@ -99,7 +100,7 @@ namespace SAT.DATA.EF//.SATMetadata
     #region StudentMetadata
 
     //public int StudentId { get; set; }
-    public class Student
+    public class StudentsMetadata
     {
         [Required(ErrorMessage = "*")]
         [StringLength(50, ErrorMessage = "*Must be 50 characters or less.")]

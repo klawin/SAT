@@ -12,12 +12,14 @@ namespace SAT.DATA.EF
     using System;
     using System.Collections.Generic;
     
-    public partial class AspNetUserLogin
+    public partial class Enrollment
     {
-        public string LoginProvider { get; set; }
-        public string ProviderKey { get; set; }
-        public string UserId { get; set; }
+        public int EnrollmentId { get; set; }
+        public int StudentId { get; set; }
+        public int ScheduledClassId { get; set; }
+        public System.DateTime EnrollmentDate { get; set; }
     
-        public virtual AspNetUser AspNetUser { get; set; }
+        public virtual ScheduledClass ScheduledClass { get; set; }
+        public virtual Student Student { get; set; }
     }
 }
