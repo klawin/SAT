@@ -52,4 +52,37 @@ namespace SAT.DATA.EF//.SATMetadata
         public DateTime EnrollmentDate { get; set; }
     }
     #endregion
+
+    #region ScheduledClassesMetadata
+    public class ScheduledClassesMetadata
+    {
+
+        //public int ScheduledClassId { get; set; }
+        [Required(ErrorMessage = "*")]
+        public int CourseId { get; set; }
+
+        [Required(ErrorMessage = "*")]
+        [Display(Name = "Start Date")]
+        [DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true)]
+        public DateTime StartDate { get; set; }
+
+        [Required(ErrorMessage = "*")]
+        [Display(Name = "End Date")]
+        [DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true)]
+        public DateTime EndDate { get; set; }
+
+        [Required(ErrorMessage = "*")]
+        [Display(Name = "Instructor Name")]
+        [StringLength(40, ErrorMessage = "*Must be 40 characters or less.")]
+        public string InstructorName { get; set; }
+
+        [Required(ErrorMessage = "*")]
+        [StringLength(20, ErrorMessage = "*Must be 20 characters or less.")]
+        public string Location { get; set; }
+
+        [Required(ErrorMessage = "*")]
+        public int SCSID { get; set; }
+    }
+
+    #endregion
 }
