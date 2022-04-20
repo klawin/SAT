@@ -36,4 +36,20 @@ namespace SAT.DATA.EF//.SATMetadata
         public bool IsActive { get; set; }
     }
     #endregion
+
+    #region EnrollmentsMetadata
+    public class EnrollmentsMetadata
+    {
+        [Required(ErrorMessage = "*")]
+        public int EnrollmentId { get; set; }
+        //public int StudentId { get; set; }
+        //public int ScheduledClassId { get; set; }
+
+        [Required(ErrorMessage = "*")]
+        [DataType(DataType.DateTime, ErrorMessage = "* Must be in correct date format (mm/dd/yyyy)")]
+        [Display(Name = "Enrollment Date")]
+        [DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true, NullDisplayText = "[-N/A-}")]
+        public DateTime EnrollmentDate { get; set; }
+    }
+    #endregion
 }
