@@ -51,25 +51,25 @@ namespace SAT.UI.MVC.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "StudentId,FirstName,LastName,EmailAddress,SSID,StudentImage")] Student student, HttpPostedFileBase StudentImage)
+        public ActionResult Create([Bind(Include = "StudentId,FirstName,LastName,EmailAddress,SSID,StudentImage")] Student student, HttpPostedFileBase studentImage)
         {
             if (ModelState.IsValid)
             {
                 string file = "NoImage.jpg";
 
-                if (StudentImage != null)
+                if (studentImage != null)
                 {
-                    file = StudentImage.FileName;
+                    file = studentImage.FileName;
                     string ext = file.Substring(file.LastIndexOf('.'));
                     string[] goodExts = { ".jpeg", ".jpg", ".png", ".gif" };
-                    if (goodExts.Contains(ext.ToLower()) && StudentImage.ContentLength <= 4194304)
+                    if (goodExts.Contains(ext.ToLower()) && studentImage.ContentLength <= 4194304)
                     {
                         file = Guid.NewGuid() + ext;
 
                         #region Resize Image
 
                         string savePath = Server.MapPath("~/Content/img/");
-                        Image convertedImage = Image.FromStream(StudentImage.InputStream);
+                        Image convertedImage = Image.FromStream(studentImage.InputStream);
                         int maxImageSize = 500;
                         int maxThumbSize = 300;
                         ImageUtility.ResizeImage(savePath, file, convertedImage, maxImageSize, maxThumbSize);
@@ -110,36 +110,40 @@ namespace SAT.UI.MVC.Controllers
     // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public ActionResult Edit([Bind(Include = "StudentId,FirstName,LastName,EmailAddress,SSID,StudentImage")] Student student, HttpPostedFileBase StudentImage)
+    public ActionResult Edit([Bind(Include = "StudentId,FirstName,LastName,EmailAddress,SSID,StudentImage")] Student student, HttpPostedFileBase studentImage)
     {
         if (ModelState.IsValid)
         {
                 string file = "NoImage.jpg";
 
-                if (StudentImage != null)
+                if (studentImage != null)
                 {
-                    file = StudentImage.FileName;
+                    file = studentImage.FileName;
                     string ext = file.Substring(file.LastIndexOf('.'));
                     string[] goodExts = { ".jpeg", ".jpg", ".png", ".gif" };
-                    if (goodExts.Contains(ext.ToLower()) && StudentImage.ContentLength <= 4194304)
+                    if (goodExts.Contains(ext.ToLower()) && studentImage.ContentLength <= 4194304)
                     {
                         file = Guid.NewGuid() + ext;
-
                         #region Resize Image
 
                         string savePath = Server.MapPath("~/Content/img/");
-                        Image convertedImage = Image.FromStream(StudentImage.InputStream);
+                        Image convertedImage = Image.FromStream(studentImage.InputStream);
                         int maxImageSize = 500;
                         int maxThumbSize = 300;
                         ImageUtility.ResizeImage(savePath, file, convertedImage, maxImageSize, maxThumbSize);
 
                         #endregion
+                        if (student.StudentImage != null && student.StudentImage != "NoImage.png")
+                        {
+                            string path = Server.MapPath("~/Content/img/");
+                            ImageUtility.Delete(path, student.StudentImage);
+                        }
+                        student.StudentImage = file;
                     }
-                    student.StudentImage = file;
                 }
 
 
-                db.Students.Add(student);
+                db.Entry(student).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
