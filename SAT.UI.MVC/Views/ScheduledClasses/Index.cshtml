@@ -61,8 +61,7 @@
                                 @Html.DisplayFor(modelItem => item.ScheduledClassStatus.SCSName)
                             </td>
                             <td>
-                                @Html.ActionLink("Edit", "Edit", new { id = item.ScheduledClassId }) |
-                                @Html.ActionLink("Details", "Details", new { id = item.ScheduledClassId }) 
+                                @Html.ActionLink("Edit", "Edit", new { id = item.ScheduledClassId })
                                 @if (User.IsInRole("Admin"))
 	                                {
                                       <char>|</char> @Html.ActionLink("Delete", "Delete", new { id = item.ScheduledClassId })	                                	

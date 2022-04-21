@@ -136,6 +136,8 @@ namespace SAT.DATA.EF//.SATMetadata
         public string EmailAddress { get; set; }
         [Required(ErrorMessage = "*")]
         public int SSID { get; set; }
+        [Display(Name = "Image")]
+        public string StudentImage { get; set; }
     }
     [MetadataType(typeof(StudentMetadata))]
     public partial class Student
