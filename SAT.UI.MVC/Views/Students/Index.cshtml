@@ -5,10 +5,13 @@
 }
 
 <h2>@ViewBag.Title</h2>
-
+@if (User.IsInRole("Admin"))
+{
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+}
+
 <div class="col-lg-12">
     <div class="card mb-0">
         <div class="card-header">
@@ -40,7 +43,7 @@
                     {
                         <tr>
                             <td>
-                                <img src="~/Content/img/@item.StudentImage" alt="@item.FullName"/>
+                                <img src="~/Content/img/@item.StudentImage" alt="@item.FullName" />
                             </td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.FirstName)
@@ -55,9 +58,18 @@
                                 @Html.DisplayFor(modelItem => item.StudentStatus.SSName)
                             </td>
                             <td>
-                                @Html.ActionLink("Edit", "Edit", new { id = item.StudentId }) |
-                                @Html.ActionLink("Details", "Details", new { id = item.StudentId }) |
-                                @Html.ActionLink("Delete", "Delete", new { id = item.StudentId })
+                                @if (User.IsInRole("Admin"))
+                                {
+                                    @Html.ActionLink("Edit", "Edit", new { id = item.StudentId }) <char>|</char>
+                                }
+
+                                @Html.ActionLink("Details", "Details", new { id = item.StudentId })
+                                
+                                @if (User.IsInRole("Admin"))
+                                {
+                                    <char>|</char> @Html.ActionLink("Delete", "Delete", new { id = item.StudentId })
+                                }
+                                
                             </td>
                         </tr>
                     }

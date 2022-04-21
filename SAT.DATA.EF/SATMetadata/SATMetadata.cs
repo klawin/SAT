@@ -60,7 +60,6 @@ namespace SAT.DATA.EF//.SATMetadata
     [MetadataType(typeof(EnrollmentMetadata))]
     public partial class Enrollment
     {
-
     }
     #endregion
 
@@ -97,7 +96,10 @@ namespace SAT.DATA.EF//.SATMetadata
     [MetadataType(typeof(ScheduledClassMetadata))]
     public partial class ScheduledClass
     {
-
+        public string Class
+        {
+            get { return StartDate.ToShortDateString() + "\n" + Course.CourseName + "\n" + Location; }
+        }
     }
     #endregion
 
