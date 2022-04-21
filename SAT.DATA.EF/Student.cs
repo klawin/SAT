@@ -25,6 +25,7 @@ namespace SAT.DATA.EF
         public string LastName { get; set; }
         public string EmailAddress { get; set; }
         public int SSID { get; set; }
+        public string StudentImage { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Enrollment> Enrollments { get; set; }

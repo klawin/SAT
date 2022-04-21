@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="SATModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="SATModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Courses">
           <Key>
             <PropertyRef Name="CourseId" />
@@ -53,6 +53,7 @@
           <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="EmailAddress" Type="nvarchar" MaxLength="50" />
           <Property Name="SSID" Type="int" Nullable="false" />
+          <Property Name="StudentImage" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="StudentStatuses">
           <Key>
@@ -150,8 +151,7 @@
             <End Role="Students" EntitySet="Students" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="SATModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -212,6 +212,7 @@
           <Property Name="SSID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Enrollments" Relationship="Self.FK_Enrollments_Students" FromRole="Students" ToRole="Enrollments" />
           <NavigationProperty Name="StudentStatus" Relationship="Self.FK_Students_StudentStatuses" FromRole="Students" ToRole="StudentStatuses" />
+          <Property Name="StudentImage" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="StudentStatus">
           <Key>
@@ -362,6 +363,7 @@
           <EntitySetMapping Name="Students">
             <EntityTypeMapping TypeName="SATModel.Student">
               <MappingFragment StoreEntitySet="Students">
+                <ScalarProperty Name="StudentImage" ColumnName="StudentImage" />
                 <ScalarProperty Name="StudentId" ColumnName="StudentId" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
                 <ScalarProperty Name="LastName" ColumnName="LastName" />

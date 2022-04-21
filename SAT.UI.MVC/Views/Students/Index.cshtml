@@ -19,6 +19,9 @@
                 <table class="table table-striped mb-0">
                     <tr>
                         <th>
+                            @Html.DisplayNameFor(model => model.StudentImage)
+                        </th>
+                        <th>
                             @Html.DisplayNameFor(model => model.FirstName)
                         </th>
                         <th>
@@ -36,6 +39,9 @@
                     @foreach (var item in Model)
                     {
                         <tr>
+                            <td>
+                                <img src="~/Content/img/@item.StudentImage" alt="@item.FullName"/>
+                            </td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.FirstName)
                             </td>
