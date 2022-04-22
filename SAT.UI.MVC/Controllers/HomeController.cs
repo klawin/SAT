@@ -42,8 +42,10 @@ namespace IdentitySample.Controllers
                 $"Message: {cvm.Message}<br />" +
                 $"Please reply to {cvm.Email} with your response at your earliest convenience.";
 
-
+            //MailMessage - What sends the email
+            //Overload for MailMessage - FROM, TO, SUBJECT, BODY
             MailMessage mm = new MailMessage("administrator@kaylawin.com", "kayla.nghi.nguyen@gmail.com", cvm.Subject, message);
+            //MailMessage mm = new MailMessage("administrator@evanwhittaker.com", "ewhittaker@centriq.com", cvm.Subject, message);
 
 
             //MailMessage Properties
@@ -54,10 +56,12 @@ namespace IdentitySample.Controllers
 
             //SmtpClient - info from host that allows emails to be sent
             SmtpClient client = new SmtpClient("mail.kaylawin.com");
+            //SmtpClient client = new SmtpClient("mail.evanwhittaker.com");
 
 
             //Client Credentials
             client.Credentials = new NetworkCredential("administrator@kaylawin.com", "P@ssw0rd");
+            //client.Credentials = new NetworkCredential("administrator@evanwhittaker.com", "P@ssw0rd");
 
 
             //Port options -- SMTP uses two ports 25 and 8889. Test with both to determine if your internet provider blocks/does not use one of these. 
